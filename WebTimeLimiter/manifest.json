@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Website Time Limiter",
+  "version": "1.7.0",
+  "description": "Limits time spent on selected websites and blocks them for the rest of the day once time is up.",
+  "permissions": ["storage", "tabs", "scripting", "notifications"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html", "blocked.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
+
+
+
+
